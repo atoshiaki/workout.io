@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 7777;
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`);
 });
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
-// connection to the database
 mongoose.connect(process.env.MONGOD_URI || 'mongodb://localhost/workout',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
